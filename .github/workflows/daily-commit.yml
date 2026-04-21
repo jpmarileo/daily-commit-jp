@@ -2,7 +2,7 @@ name: Daily Commit JP - 13:00 Aysén
 
 on:
   schedule:
-    - cron: "0 16 * * *"      # 13:00 hora Aysén (UTC-3) → después de almuerzo
+    - cron: "0 16 * * *"   # 13:00 hora local Aysén (UTC-3)
   workflow_dispatch:
 
 jobs:
@@ -16,12 +16,12 @@ jobs:
 
       - name: Update file
         run: |
-          echo "Último commit automático: $(date '+%Y-%m-%d %H:%M:%S') - Juan Pablo en Aysén" > last-update.txt
+          echo "Commit automático $(date '+%Y-%m-%d %H:%M:%S') - Juan Pablo en Aysén" > last-update.txt
 
       - name: Commit and push
         run: |
           git config user.name "Juan Pablo Marileo"
-          git config user.email "jpmarileo@gmail.com"   # ← CAMBIA ESTO OBLIGATORIO
+          git config user.email "jpmarileo@gmail.com"   # ← CAMBIA AQUÍ POR TU CORREO REAL DE GITHUB
           git add last-update.txt
-          git commit -m "Daily auto commit - Racha mantenida 🔥 $(date '+%Y-%m-%d %H:%M') - Aysén" || echo "No hay cambios nuevos"
+          git commit -m "Daily auto commit - Racha mantenida 🔥 $(date '+%Y-%m-%d')" || echo "Sin cambios"
           git push
