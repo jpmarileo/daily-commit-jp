@@ -25,3 +25,6 @@ jobs:
           git add last-update.txt
           git commit -m "Daily auto commit - Racha mantenida 🔥 $(date '+%Y-%m-%d')" || echo "Sin cambios"
           git push
+
+permissions:
+  contents: write
