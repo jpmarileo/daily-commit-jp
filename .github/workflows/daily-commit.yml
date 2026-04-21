@@ -1,9 +1,9 @@
-name: Daily Commit
+name: Daily Commit JP - 13:00 Aysén
 
 on:
   schedule:
-    - cron: "0 12 * * *"  # A las 12:00 UTC (ajusta a tu hora Chile, ejemplo 8 AM Chile ≈ 12 UTC)
-  workflow_dispatch:  # Para ejecutarlo manualmente si quieres
+    - cron: "0 16 * * *"      # ← Corre a las 13:00 hora local de Aysén (UTC-3)
+  workflow_dispatch:          # Para probarlo manualmente cuando quieras
 
 jobs:
   daily-commit:
@@ -16,12 +16,12 @@ jobs:
 
       - name: Update file
         run: |
-          echo "Último commit automático: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" > last-update.txt
+          echo "Último commit automático: $(date '+%Y-%m-%d %H:%M:%S') - Juan Pablo trabajando en Aysén" > last-update.txt
 
       - name: Commit and push
         run: |
           git config user.name "Juan Pablo Marileo"
-          git config user.email "tu-email-registrado-en-github@example.com"
+          git config user.email "jpmarileo@gmail.com"   # ← CAMBIA ESTO SÍ O SÍ
           git add last-update.txt
-          git commit -m "Daily auto commit - Racha mantenida 🔥" || echo "No hay cambios"
+          git commit -m "Daily auto commit - Racha mantenida 🔥 $(date '+%Y-%m-%d %H:%M') - Aysén" || echo "No hay cambios nuevos"
           git push
