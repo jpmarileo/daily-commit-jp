@@ -20,7 +20,7 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.name "Juan Pablo Marileo"
+          git config user.name "jpmarileo"
           git config user.email "104883419+jpmarileo@users.noreply.github.com"   # ← CAMBIA ESTO por tu correo verificado
           git add last-update.txt
           git commit -m "Daily auto commit - Racha mantenida 🔥 $(date '+%Y-%m-%d')" || echo "Sin cambios"
